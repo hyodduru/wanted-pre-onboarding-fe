@@ -22,9 +22,8 @@
 
 ## 데모 영상
 
+https://user-images.githubusercontent.com/90507720/184643473-c2f9bc21-981d-4821-8a85-a003dfb0c919.mov
 
 
-
-https://user-images.githubusercontent.com/90507720/184641533-be710ed1-3071-412a-8b98-41df6f3471ad.MOV
 
 
