@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Login from "./Pages/Login";
+import Login from "./Pages/Login/Login";
 import Todo from "./Pages/Todo";
 
 const Router = () => {
