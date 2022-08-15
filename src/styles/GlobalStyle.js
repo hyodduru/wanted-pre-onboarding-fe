@@ -15,24 +15,6 @@ const GlobalStyle = createGlobalStyle`
       font-weight: ${(props) => props.theme.weightBold};
       color: ${(props) => props.theme.fontMain};
     }
-    h2 {
-      font-size: ${(props) => props.theme.fontMedium};
-      font-weight: ${(props) => props.theme.weightSemiBold};
-      color: ${(props) => props.theme.fontMain};
-    }
-    h3 {
-      font-size: ${(props) => props.theme.fontRegular};
-      font-weight: ${(props) => props.theme.weightRegular};
-      color: ${(props) => props.theme.fontMain};
-    }
-    p {
-      font-size: ${(props) => props.theme.fontRegular};
-      font-weight: ${(props) => props.theme.weightRegular};
-      color: ${(props) => props.theme.fontMain};
-    }
-    img {
-      object-fit: cover;
-    }
 `;
 
 export default GlobalStyle;

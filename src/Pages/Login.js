@@ -1,13 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { BASE_URL } from "../../config";
+import { BASE_URL, setToken } from "../config";
 
 const Login = () => {
   const navigate = useNavigate();
   const [mode, setMode] = useState("회원가입");
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) navigate("/todo");
+  }, [navigate]);
 
   const submitUserInfo = async (e) => {
     e.preventDefault();
@@ -25,7 +29,7 @@ const Login = () => {
       );
 
       if (data) {
-        localStorage.setItem("token", data.access_token);
+        setToken(data.access_token);
 
         mode === "회원가입"
           ? alert("회원가입에 성공하셨습니다.")
@@ -63,14 +67,14 @@ const Login = () => {
             로그인
           </SignInButton>
         </ButtonBox>
-        <LoginForm>
+        <LoginForm onSubmit={submitUserInfo}>
           <FormItem>
             <Label>이메일</Label>
             <Input
               name="email"
               placeholder="이메일을 입력해주세요."
               onKeyUp={handleUserInfo}
-            ></Input>
+            />
           </FormItem>
           <FormItem>
             <Label>비밀번호</Label>
@@ -79,11 +83,9 @@ const Login = () => {
               name="password"
               placeholder="비밀번호를 입력해주세요."
               onChange={handleUserInfo}
-            ></Input>
+            />
           </FormItem>
-          <SubmitBtn disabled={!checkValidity()} onClick={submitUserInfo}>
-            {mode}
-          </SubmitBtn>
+          <SubmitBtn disabled={!checkValidity()}>{mode}</SubmitBtn>
         </LoginForm>
       </FormContainer>
     </Wrapper>
