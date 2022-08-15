@@ -8,6 +8,7 @@ import { VscCircleOutline } from "react-icons/vsc";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
 import { RiSaveLine } from "react-icons/ri";
+import { ImCancelCircle } from "react-icons/im";
 
 import { BASE_URL, getToken } from "../config";
 
@@ -153,7 +154,14 @@ const Todo = () => {
               </div>
               <ButtonBox>
                 {editTodo.id === id ? (
-                  <UpdateBtn onClick={updateTodo} />
+                  <>
+                    <CancelBtn
+                      onClick={() =>
+                        setEditTodo({ id: "", todo: "", isCompleted: false })
+                      }
+                    />
+                    <UpdateBtn onClick={updateTodo} />
+                  </>
                 ) : (
                   <>
                     <EditBtn
@@ -251,6 +259,12 @@ const UpdateBtn = styled(RiSaveLine)`
   cursor: pointer;
 `;
 
+const CancelBtn = styled(ImCancelCircle)`
+  margin: 0 10px;
+  cursor: pointer;
+`;
+
 const ButtonBox = styled.div`
   display: flex;
+  align-items: center;
 `;
